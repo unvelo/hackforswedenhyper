@@ -73,7 +73,7 @@ for(var i = 0; i < result.length; i++) {
 
 
 
-document.getElementById("annonser").innerHTML += "<div class='ad'>" + "<div class='wrap-ad'>" +  "<div class='headline'>" +  annonsRubrik + "</div>" + "<br>" + "<div class='undertitle'>" + arbetsplatsNamn + "<br>" + yrkesBenamning + "</div>" + "</div>" + "<br>" + "<input type='image' src='plus.png' id=annonsimage>" + "<div id='annonsid' style='display:none'>" + annonsId + "</div>" + "</div>" + "<br>";
+document.getElementById("annonser").innerHTML += "<div class='ad'> <div class='wrap-ad'>" +  "<div class='headline'>" +  annonsRubrik + "</div>" + "<br>" + "<div class='undertitle'>" + arbetsplatsNamn + "<br>" + yrkesBenamning + "<button class='address-placeholder'>Address placeholder</button> </div>" + "</div>" + "<br>" + "<input type='image' src='plus.png' id=annonsimage>" + "<div id='annonsid' style='display:none'>" + annonsId + "</div>" + "</div>" + "<br>";
 //function loadAd(adId){
 //	console.log(adId);
 }// This function is not working as I want to, want to get the right annonsId value when I click the ugly plus symbol :)
@@ -109,7 +109,14 @@ xhr.send();
 
 //Change from text to JSON format
 var annonsData = JSON.parse(xhr.responseText);
+var jobAddress = annonsData.platsannons.arbetsplats.postadress;
 console.log(annonsData);
+
+$('button.address-placeholder').click(function() {
+    console.log("button clicked");
+    //$(this).hide();
+});
+
 //Show all elements in 
 document.getElementById("annonsrubrik").innerHTML = annonsData.platsannons.annons.annonsrubrik;
 document.getElementById("yrke").innerHTML = annonsData.platsannons.annons.yrkesbenamning;
