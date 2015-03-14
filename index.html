@@ -10,7 +10,7 @@
 		<h3>Hitta det perfekta extrajobbet nära dig</h3>
 		<input type="text" id="myText" name="fname" placeholder="Namn på komunen du vill ha jobb i..." onfocus="this.placeholder = ''" onblur= "this.placeholder = 'Namn på komunen du vill ha jobb i...'"><br><br><br>
 
-		<a class="page-scroll" href="#annonser"><button onclick="myFunction()">SÖK</button>
+		<a class="page-scroll" href="#skatt"><button onclick="myFunction()">SÖK</button>
 
 		 </a> </div>
 	</div>
@@ -18,17 +18,20 @@
 <div id="centerwrap">
 
 <!-- DIV FÖR SKATT API -->	
-	<div id="skatt"></div>
+	<div id="skattwrap">
+	<div id="skattinfo">Antal personer under 20 år som har betalat kommunalskatt i denna komun.</div>
+	<div id="skatt"></div></div>
 
 		<div id="annonser"></div>
-		<h3>Alla annonser</h3>
+		
 		<div class="helannons">
-			<h3>Annons med all information</h3>
+
+			<div id="minus"><img src="minus.png" style= "height: 34px", "width: 33px"/></a></div>
 			<div id="annonsrubrik"></div>
 			<div id="yrke"></div>
 			<div id="annonstext"></div>
 			<div id="foretag"></div>
-			<a id="sok-knapp-button" href=""><button id="sok-knapp">Sök nu</button></a>
+			<a id="sok-knapp-button" href=""><button id="sok-knapp">SÖK NU</button></a>
 			<div id="sista-dag"></div>
 
 		</div>
@@ -39,4 +42,3 @@
 <script src="test.js"></script>
 </body>
 </html>
-

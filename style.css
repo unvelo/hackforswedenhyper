@@ -19,6 +19,7 @@ h2{
   text-transform: uppercase;
   margin-bottom: 10px;
   margin-top: 150px;
+  color: #303088;
 }
 
 h3{
@@ -27,6 +28,7 @@ h3{
   font-family: "Gibson";
   margin-top: 0px;
   margin-bottom: 60px;
+  color:#303088;
 }
 
 input{
@@ -124,5 +126,116 @@ button
   font-family: "Futura-CondensedMedium","Futura TGW", "Futura";
   text-transform: uppercase;
   text-align: center;
-
+  font-size: 1.4vw;
 }
+
+div.headline{
+  font-family: "Futura-CondensedMedium","Futura TGW", "Futura";
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.4vw;
+  float: left;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+div.undertitle{
+  font-weight: lighter;
+  font-size: 1.2vw;
+  font-family: "Gibson";
+  margin-top: 30px;
+  float: left;
+  margin-left: 30px;
+}
+
+div.wrap-ad{
+  float: left;
+}
+
+div.helannons{
+  background-color:#e1e2e4;
+  color: #303088;
+  width: 100vw;
+  height: 100vw;
+  z-index: 100;
+  position: relative;
+  opacity: 0.9;
+  text-align: left;
+  padding-top: 100vw;
+  margin-top: -900px;
+  font-weight: lighter;
+  font-size: 1.2vw;
+  font-family: "Gibson";
+}
+
+div#annonstext{
+  width: 60%;
+  margin-left:auto;
+  margin-right: auto;
+  opacity: 1.8;
+  margin-bottom: 10px;
+}
+
+#skatt{
+  font-family: "Futura-CondensedMedium","Futura TGW", "Futura";
+  font-size: 3vw;
+  text-align: center;
+  color: #303088;
+  background-color: #e6b0a4;
+  width: 100px;
+  height: 75px;
+  border-radius: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 25px;
+  float: right;
+}
+
+#skattinfo{
+  font-weight: lighter;
+  font-size: 1.2vw;
+  font-family: "Gibson";
+  text-align: left;
+  float: left;
+}
+ #skattwrap{
+ margin-left: auto;
+ margin-right: auto;
+ width: 600px;
+ height: 150px;
+ }
+
+div#yrke{
+  width: 60%;
+  margin-left:auto;
+  margin-right: auto;
+  opacity: 1.8;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: lighter;
+  font-size: 1.2vw;
+  font-family: "Gibson";
+}
+
+div#foretag{
+  width: 60%;
+  margin-left:auto;
+  margin-right: auto;
+  opacity: 1.8;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: lighter;
+  font-size: 1.2vw;
+  font-family: "Gibson";
+}
+
+div#minus{
+  float:right;
+  margin-right: 200px;
+}
+
+button#sok-knapp{
+  opacity: 1.8;
+  margin-left: 250px;
+  }
+  
