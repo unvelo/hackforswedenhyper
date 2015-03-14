@@ -56,7 +56,7 @@ for(var i = 0; i < result.length; i++) {
 
 
 
-document.getElementById("annonser").innerHTML += "<div class='ad'>" + annonsRubrik + "<br>" + arbetsplatsNamn + "<br>" + yrkesBenamning + "<br>" + "<input type='image' src='plus.png' id=annonsimage>" + "<div id='annonsid' style='display:none'>" + annonsId + "</div>" + "</div>" + "<br>";
+document.getElementById("annonser").innerHTML += "<div class='ad'>" + "<div class='headline'>" +  annonsRubrik + "</div>" + "<br>" + "<div class='undertitle'>" + arbetsplatsNamn + "<br>" + yrkesBenamning + "</div>" + "<br>" + "<input type='image' src='plus.png' id=annonsimage>" + "<div id='annonsid' style='display:none'>" + annonsId + "</div>" + "</div>" + "<br>";
 //function loadAd(adId){
 //	console.log(adId);
 }// This function is not working as I want to, want to get the right annonsId value when I click the ugly plus symbol :)
