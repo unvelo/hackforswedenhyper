@@ -41,6 +41,13 @@ input{
   padding-left: 20px;
 }
 
+input#annonsimage{
+  height: 34px;
+  width: 33px;
+  float: right;
+  margin-right: 20px;
+}
+
 ::-webkit-input-placeholder {
    color: #303088;
 }

@@ -1,10 +1,41 @@
+function myFunction() {
+    var userKommun = document.getElementById("myText").value;
+
+var xmlhttp = new XMLHttpRequest();
+var url1 = "kommuner.json";
+
+var xhr = new XMLHttpRequest 
+xhr.open("GET", url1, false );
+xhr.send();
+
+//Change from text to JSON format
+var jsonData = JSON.parse(xhr.responseText);
+console.log(jsonData);
+
+var komId= jsonData.kommun;
+
+for(var i = 0; i < komId.length; i++) {
+  if(komId[i].Kommuner == userKommun){
+    var newKommunId = komId[i].KommunId;
+    console.log(newKommunId);
+
+
 // Api reguest to get all ads from an area
-var kommunId = "1080"; // Depends on user input
 var nyckelOrd = "sommarjobb"; //This is always decided of us
 var rad = "30"; //This is always decided (we can also have more pages)
 
-var url = "http://api.arbetsformedlingen.se/af/v0/platsannonser/matchning?kommunid=" + kommunId + "&nyckelord=" + nyckelOrd + "&antalrader=" + rad;
+var url = "http://api.arbetsformedlingen.se/af/v0/platsannonser/matchning?kommunid=" + newKommunId + "&nyckelord=" + nyckelOrd + "&antalrader=" + rad;
 console.log(url);
+
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 5000, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
 
 //API call
 var xhr = new XMLHttpRequest 
@@ -25,7 +56,7 @@ for(var i = 0; i < result.length; i++) {
 
 
 
-document.getElementById("annonser").innerHTML += "<div class='ad'>" + annonsRubrik + "<br>" + arbetsplatsNamn + "<br>" + yrkesBenamning + "<br>" + "<input type='image' src='plus_icon.png' id=annonsimage>" + "<div id='annonsid' style='display:none'>" + annonsId + "</div>" + "</div>" + "<br>";
+document.getElementById("annonser").innerHTML += "<div class='ad'>" + annonsRubrik + "<br>" + arbetsplatsNamn + "<br>" + yrkesBenamning + "<br>" + "<input type='image' src='plus.png' id=annonsimage>" + "<div id='annonsid' style='display:none'>" + annonsId + "</div>" + "</div>" + "<br>";
 //function loadAd(adId){
 //	console.log(adId);
 }// This function is not working as I want to, want to get the right annonsId value when I click the ugly plus symbol :)
@@ -76,9 +107,14 @@ var postadress = annonsData.platsannons.arbetsplats.postadress;
 var postnummer = annonsData.platsannons.arbetsplats.postnummer;
 var postort = annonsData.platsannons.arbetsplats.postort;
 
+
 console.log(postadress);
 console.log(postnummer);
 console.log(postort);
+})
+}
+}
+}
 
 /*
 $(".helannons").hide();
@@ -93,4 +129,4 @@ $("input#annonsimage").click(function() {
 //$(".helannons").click(function() {
 //$(".helannons").hide();
 //	})
-})
+
