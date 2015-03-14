@@ -19,9 +19,26 @@ for(var i = 0; i < komId.length; i++) {
     var newKommunId = komId[i].KommunId;
     console.log(newKommunId);
 
+var xml = new XMLHttpRequest();
+var url2 = "taxpayers.json";
+
+var xhr = new XMLHttpRequest 
+xhr.open("GET", url2, false );
+xhr.send();
+
+//Change from text to JSON format
+var taxData = JSON.parse(xhr.responseText);
+console.log(jsonData);
+
+var taxPeople= taxData.tax;
+
+for(var i = 0; i < taxPeople.length; i++) {
+  if(taxPeople[i].kommune == userKommun){
+    var taxPayers = taxPeople[i].taxpayers;
+    document.getElementById("skatt").innerHTML = taxPayers;
 
 // Api reguest to get all ads from an area
-var nyckelOrd = "sommarjobb"; //This is always decided of us
+var nyckelOrd = "'butikssäljare'OR'barnvakt'OR'butikssäljare'OR'barnflicka'OR'extrainhopp'OR'varuplockare'OR'lagerarbetare'OR'cafévärd'OR'Städare'OR'tidningsdistributör'OR'enklare städuppgifter'OR'kökshjälp'OR'burger king'OR'butiksmedarbetare'OR'cafépersonal'OR'campingvärd'OR'campingvärder'OR'sommarpersonal'OR'servitris'OR'servitör'OR'butikssäljare'OR'mcdonalds'OR'sommarjobb'OR'tidningsbud'OR'brevbärare'OR'tidningsdistributörer'OR'tidningsdistributör'OR'Cafebiträde'OR'diskare'OR'sommarmedarbetare'OR'Köksbiträde'OR'serveringspersonal'OR'reklamutdelning'OR'kassapersonal'OR'minst 16 år'OR'minst 17 år'OR'minst 18 år'AND'deltid" //This is always decided of us
 var rad = "30"; //This is always decided (we can also have more pages)
 
 var url = "http://api.arbetsformedlingen.se/af/v0/platsannonser/matchning?kommunid=" + newKommunId + "&nyckelord=" + nyckelOrd + "&antalrader=" + rad;
@@ -56,7 +73,7 @@ for(var i = 0; i < result.length; i++) {
 
 
 
-document.getElementById("annonser").innerHTML += "<div class='ad'>" + "<div class='headline'>" +  annonsRubrik + "</div>" + "<br>" + "<div class='undertitle'>" + arbetsplatsNamn + "<br>" + yrkesBenamning + "</div>" + "<br>" + "<input type='image' src='plus.png' id=annonsimage>" + "<div id='annonsid' style='display:none'>" + annonsId + "</div>" + "</div>" + "<br>";
+document.getElementById("annonser").innerHTML += "<div class='ad'>" + "<div class='wrap-ad'>" +  "<div class='headline'>" +  annonsRubrik + "</div>" + "<br>" + "<div class='undertitle'>" + arbetsplatsNamn + "<br>" + yrkesBenamning + "</div>" + "</div>" + "<br>" + "<input type='image' src='plus.png' id=annonsimage>" + "<div id='annonsid' style='display:none'>" + annonsId + "</div>" + "</div>" + "<br>";
 //function loadAd(adId){
 //	console.log(adId);
 }// This function is not working as I want to, want to get the right annonsId value when I click the ugly plus symbol :)
@@ -112,6 +129,8 @@ console.log(postadress);
 console.log(postnummer);
 console.log(postort);
 })
+}
+}
 }
 }
 }
