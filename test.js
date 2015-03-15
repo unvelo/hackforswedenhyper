@@ -111,12 +111,13 @@ function myFunction() {
               //Address output for the travel calculation
               var jobAddress = annonsData.platsannons.arbetsplats.postadress;
               var postort = annonsData.platsannons.arbetsplats.postort;
-
+                console.log(jobAddress);
+                console.log(postort);
               /*$('button.address-placeholder').click(function() {
                   console.log("button clicked");
                   //$(this).hide();
               });*/
-
+               document.getElementById("annonser").innerHTML += "<div class='ad'>"+ "<button>"+jobAddress+"</button><p class='job-address'>"+jobAddress+"</p><br>"+ annonsRubrik + "<br>" + arbetsplatsNamn + "<br>" + yrkesBenamning + "<br>" + "<div id='annonsid' style='display:none'>" + annonsId + "</div>" + "</div>" + "<br>";
 
               //Show all elements in 
               document.getElementById("annonsrubrik").innerHTML = annonsData.platsannons.annons.annonsrubrik;
@@ -125,10 +126,50 @@ function myFunction() {
               document.getElementById("foretag").innerHTML = annonsData.platsannons.arbetsplats.arbetsplatsnamn;
               //Hanne newcode
               $("#sok-knapp-button").attr('href', annonsData.platsannons.annons.platsannonsUrl);
-            })
+          
+              var apiKey = 'c905773b36b7410e941b1220cf5ed883';
+              var userAddress;
+              var distanceInput;
+              var jobAddressForDistance;
+
+                // Api reguest to get all ads from an area
+                function fetchJobs() {
+                  userAddress = document.getElementById("address").value;
+                  console.log(userAddress);
+                }
+
+ $('input').click(function() {
+    fetchJobs();
+  });
+  
+  $('#dist').click(function() {
+    jobAddressForDistance = jobAddress;//$(this).siblings('.job-address').html();
+    var directionsService = new google.maps.DirectionsService();
+
+    var request = {
+      origin: userAddress,
+      destination: jobAddressForDistance,
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+
+    directionsService.route(request, function(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        distanceInput = parseInt(response.routes[0].legs[0].distance.value / 1000);
+        console.log(userAddress, jobAddressForDistance, distanceInput);
+      }
+    });  
+    console.log(distanceInput);
+    $(this).parent().append("<p class='job-distance'>"+distanceInput+"</p>").css('color', 'red');
+
+  });
+
+
+
+
             $("#minus").click(function() { 
                 $(".helannons").hide(); 
             });
+             })
           }
         }
       }
